@@ -23,7 +23,7 @@
 			var hvitsubendelse = ["helgen", "frp-er", "republikaner"];
 			var hvitsubstart = ["Hvitsnippe", "Birkebeiner", "finans", "EØS-", "yttringsfrihet"];
 			
-			var hvitsted = ["Frogner", "Bærum", "Tjuvholmen", "Nordstrand", "Vestre Aker", "Ullern", "Holmenkollen"];
+			var hvitsted = ["Frogner", "Bærum", "Tjuvholm", "Nordstrand", "Vestre Aker", "Ullern", "Holmenkoll"];
 			var svartsted = ["Tøyen", "Grønland", "Grorud", "Homsås", "Alna", "Stovner"];
 			
 			var hvitperson = ["Sylvi Listhaug", "Magnus Carlsen", "Erna Solberg", "Erna", "Sylvi"];
@@ -48,7 +48,9 @@
 				name = hvitsubstart[rand7]+svartsubendelse[rand4];
 			}
 			if (settning == 1){
-				name = hvitperson[rand10]+" og en "+adjektiv[rand1]+" "+hvitsted[rand8]+svartsubendelse[rand4];
+				name = hvitperson[rand10]+" og en "
+					if (rand11 = 0){name = name+adjektiv[rand1]+" "}
+				name = name+hvitsted[rand8]+svartsubendelse[rand4];
 			}
 			if (settning == 2){
 				name = hvitsubstart[rand7]+svartsubendelse[rand4];
