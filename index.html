@@ -9,48 +9,72 @@
 	
 	
 
-	<script type="text/javascript">	
-		function generator(){
+	<script type="text/javascript">
+		var adjektiv = ["jævlig", "stor", "fjern", "liten", "forbanna", "føkkings"];
 			
-			var adjektiv = ["jævlig", "stor", "fjern", "liten", "forbanna", "føkkings"];
+		var svartsub = ["niqab", "hijab", "koran", "rebell", "svarting"];
+		var hvitsub = ["mercedes", "bibel", "vaskehjelp", "au-pair"];
+
+		var svartsubendelse = ["jævel", "homse", "dritt", "fitte", "flyktning", "innvandrer", "allah", "svarting", "pakkis", "rebell"];
+		var svartsubstart = ["Trygde", "innvandrer", "IS-", "muslim"];
+
+		var hvitsubendelse = ["helgen", "frp-er", "republikaner"];
+		var hvitsubstart = ["Hvitsnippe", "Birkebeiner", "kakse", "EØS-", "yttringsfrihet", "au-pair"];
+
+		var hvitsted = ["Frogner", "Bærum", "Tjuvholm", "Nordstrand", "Vestre Aker", "Ullern", "Holmenkoll"];
+		var svartsted = ["Tøyen", "Grønland", "Grorud", "Homsås", "Alna", "Stovner"];
+
+		var hvitperson = ["Sylvi Listhaug", "Magnus Carlsen", "Erna Solberg", "Erna", "Sylvi"];
+		var svartperson = ["Magdi", "Chirag", "Karpe Diem"];
+		
+		var rand1 = parseInt(Math.random() * adjektiv.length);
+		var rand2 = parseInt(Math.random() * svartsub.length);
+		var rand3 = parseInt(Math.random() * hvitsub.length);
+		var rand4 = parseInt(Math.random() * svartsubendelse.length);
+		var rand5 = parseInt(Math.random() * svartsubstart.length);
+		var rand6 = parseInt(Math.random() * hvitsubendelse.length);
+		var rand7 = parseInt(Math.random() * hvitsubstart.length);
+		var rand8 = parseInt(Math.random() * hvitsted.length);
+		var rand9 = parseInt(Math.random() * svartsted.length);
+		var rand10 = parseInt(Math.random() * hvitperson.length);
+		var rand11 = parseInt(Math.random() * svartperson.length);
+		
+		function persongen(){
+			var name;
+			if (parseInt(Math.random() * 2) < 1){ //adjective?
+				name = adjektiv[rand1]+" ";
+			}
 			
-			var svartsub = ["niqab", "hijab", "koran", "rebell", "svarting"];
-			var hvitsub = ["mercedes", "bibel", "vaskehjelp", "au-pair"];
+			//Start
+			var prob = parseInt(Math.random() * 4);
+			if (prob == 0){
+				name = name+hvitsted[rand8];
+			}else if (prob == 1){
+				name = name+svartsted[rand9];
+			}else if (prob == 2){
+				name = name+svartsubstart[rand5];
+			}else if (prob == 3){
+				name = name+hvitsubstart[rand7];
+			}
+			prob = parseInt(Math.random() * 2);
+			else if (prob == 0){
+				name = name+svartsubendelse[rand4];
+			}else if (prob == 1){
+				name = name+hvitsubendelse[rand6];
+			}
+			return name;
 			
-			var svartsubendelse = ["jævel", "homse", "dritt", "fitte", "flyktning", "innvandrer", "allah", "svarting", "pakkis"];
-			var svartsubstart = ["Trygde", "innvandrer", "IS-", "muslim"];
-			
-			var hvitsubendelse = ["helgen", "frp-er", "republikaner"];
-			var hvitsubstart = ["Hvitsnippe", "Birkebeiner", "finans", "EØS-", "yttringsfrihet"];
-			
-			var hvitsted = ["Frogner", "Bærum", "Tjuvholm", "Nordstrand", "Vestre Aker", "Ullern", "Holmenkoll"];
-			var svartsted = ["Tøyen", "Grønland", "Grorud", "Homsås", "Alna", "Stovner"];
-			
-			var hvitperson = ["Sylvi Listhaug", "Magnus Carlsen", "Erna Solberg", "Erna", "Sylvi"];
-			var svartperson = ["Magdi", "Chirag", "Karpe Diem"];
-			
+		}
+		function generator(){		
 			// Random numbers are made 
-			var rand1 = parseInt(Math.random() * adjektiv.length);
-			var rand2 = parseInt(Math.random() * svartsub.length);
-			var rand3 = parseInt(Math.random() * hvitsub.length);
-			var rand4 = parseInt(Math.random() * svartsubendelse.length);
-			var rand5 = parseInt(Math.random() * svartsubstart.length);
-			var rand6 = parseInt(Math.random() * hvitsubendelse.length);
-			var rand7 = parseInt(Math.random() * hvitsubstart.length);
-			var rand8 = parseInt(Math.random() * hvitsted.length);
-			var rand9 = parseInt(Math.random() * svartsted.length);
-			var rand10 = parseInt(Math.random() * hvitperson.length);
-			var rand11 = parseInt(Math.random() * svartperson.length);
 			var settning = parseInt(Math.random()*6);
 			var name;
 			
 			if (settning == 0){
-				name = hvitsubstart[rand7]+svartsubendelse[rand4];
+				name = persongen();
 			}
 			if (settning == 1){
-				name = hvitperson[rand10]+" og en "
-					if (rand11 = 0){name = name+adjektiv[rand1]+" "}
-				name = name+hvitsted[rand8]+svartsubendelse[rand4];
+				name = hvitperson[rand10]+" og en "+persongen();
 			}
 			if (settning == 2){
 				name = hvitsubstart[rand7]+svartsubendelse[rand4];
