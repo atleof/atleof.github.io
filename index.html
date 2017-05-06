@@ -17,11 +17,11 @@
 			var svartsub = ["niqab", "hijab", "koran", "rebell", "svarting"];
 			var hvitsub = ["mercedes", "bibel", "vaskehjelp", "au-pair"];
 			
-			var svartsubendelse = ["jævel", "homse", "dritt", "fitte", "flyktning", "innvandrer", "allah", "svarting"];
+			var svartsubendelse = ["jævel", "homse", "dritt", "fitte", "flyktning", "innvandrer", "allah", "svarting", "pakkis"];
 			var svartsubstart = ["Trygde", "innvandrer", "IS-", "muslim"];
 			
 			var hvitsubendelse = ["helgen", "frp-er", "republikaner"];
-			var hvitsubstart = ["Hvitsnippe", "Birkebeiner", "finans", "EU-", "yttringsfrihet"];
+			var hvitsubstart = ["Hvitsnippe", "Birkebeiner", "finans", "EØS-", "yttringsfrihet"];
 			
 			var hvitsted = ["Frogner", "Bærum", "Tjuvholmen", "Nordstrand", "Vestre Aker", "Ullern", "Holmenkollen"];
 			var svartsted = ["Tøyen", "Grønland", "Grorud", "Homsås", "Alna", "Stovner"];
@@ -44,9 +44,28 @@
 			var settning = parseInt(Math.random()*6);
 			var name;
 			
-			if (settning == settning){
+			if (settning == 0){
 				name = hvitsubstart[rand7]+svartsubendelse[rand4];
-			}		
+			}
+			if (settning == 1){
+				name = hvitperson[rand10]+" og en "+adjektiv[rand1]+" "+hvitsted[rand8]+svartsubendelse[rand4];
+			}
+			if (settning == 2){
+				name = hvitsubstart[rand7]+svartsubendelse[rand4];
+			}
+			if (settning == 3){
+				name = hvitsubstart[rand7]+svartsubendelse[rand4];
+			}
+			if (settning == 4){
+				name = hvitsubstart[rand7]+svartsubendelse[rand4];
+			}
+			if (settning == 5){
+				name = hvitsubstart[rand7]+svartsubendelse[rand4];
+			}
+			if (settning == 6){
+				name = hvitsubstart[rand7]+svartsubendelse[rand4];
+			}
+			
 			
 			//alert(name); //Remove first to slashes to alert the name
 			
