@@ -12,14 +12,41 @@
 	<script type="text/javascript">	
 		function generator(){
 			
-			var wordlist1 = ["neger", "pakkis","svarting","flyktning","homse","jævel",];
+			var adjektiv = ["jævlig", "stor", "fjern", "liten", "forbanna", "føkkings"];
 			
-			var wordlist2 = ["Frogner","Vestkant","Egenkapital","Hvitsnippe","Høyre-",]
+			var svartsub = ["niqab", "hijab", "koran", "rebell", "svarting"];
+			var hvitsub = ["mercedes", "bibel", "vaskehjelp", "au-pair"];
+			
+			var svartsubendelse = ["jævel", "homse", "dritt", "fitte", "flyktning", "innvandrer", "allah", "svarting"];
+			var svartsubstart = ["Trygde", "innvandrer", "IS-", "muslim"];
+			
+			var hvitsubendelse = ["helgen", "frp-er", "republikaner"];
+			var hvitsubstart = ["Hvitsnippe", "Birkebeiner", "finans", "EU-", "yttringsfrihet"];
+			
+			var hvitsted = ["Frogner", "Bærum", "Tjuvholmen", "Nordstrand", "Vestre Aker", "Ullern", "Holmenkollen"];
+			var svartsted = ["Tøyen", "Grønland", "Grorud", "Homsås", "Alna", "Stovner"];
+			
+			var hvitperson = ["Sylvi Listhaug", "Magnus Carlsen", "Erna Solberg", "Erna", "Sylvi"];
+			var svartperson = ["Magdi", "Chirag", "Karpe Diem"];
 			
 			// Random numbers are made 
-			var randomNumber2 = parseInt(Math.random() * wordlist1.length);
-			var randomNumber1 = parseInt(Math.random() * wordlist2.length);
-			var name = wordlist2[randomNumber2] + wordlist1[randomNumber1];			
+			var rand1 = parseInt(Math.random() * adjektiv.length);
+			var rand2 = parseInt(Math.random() * svartsub.length);
+			var rand3 = parseInt(Math.random() * hvitsub.length);
+			var rand4 = parseInt(Math.random() * svartsubendelse.length);
+			var rand5 = parseInt(Math.random() * svartsubstart.length);
+			var rand6 = parseInt(Math.random() * hvitsubendelse.length);
+			var rand7 = parseInt(Math.random() * hvitsubstart.length);
+			var rand8 = parseInt(Math.random() * hvitsted.length);
+			var rand9 = parseInt(Math.random() * svartsted.length);
+			var rand10 = parseInt(Math.random() * hvitperson.length);
+			var rand11 = parseInt(Math.random() * svartperson.length);
+			var settning = parseInt(Math.random()*6);
+			var name;
+			
+			if (settning == settning){
+				name = hvitsubstart[rand7]+svartsubendelse[rand4];
+			}		
 			
 			//alert(name); //Remove first to slashes to alert the name
 			
