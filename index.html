@@ -10,86 +10,138 @@
 	
 
 	<script type="text/javascript">
-		var adjektiv = ["jævlig", "stor", "fjern", "liten", "forbanna", "føkkings"];
-			
-		var svartsub = ["niqab", "hijab", "koran", "rebell", "svarting"];
-		var hvitsub = ["mercedes", "bibel", "vaskehjelp", "au-pair"];
+    
+    	var adjektiv = ["jævla", "stor", "fjern", "liten", "forbanna", "føkkings", "voldelig", "nypult", "fengsla"];
 
-		var svartsubendelse = ["jævel", "homse", "dritt", "fitte", "flyktning", "innvandrer", "allah", "svarting", "pakkis", "rebell"];
-		var svartsubstart = ["Trygde", "innvandrer", "IS-", "muslim"];
+            var svartsub = ["niqab", "hijab", "koran", "rebell", "svarting", "profet"];
+            var hvitsub = ["mercedes", "bibel", "vaskehjelp", "au-pair", "helseguru"];
 
-		var hvitsubendelse = ["helgen", "frp-er", "republikaner"];
-		var hvitsubstart = ["Hvitsnippe", "Birkebeiner", "kakse", "EØS-", "yttringsfrihet", "au-pair"];
+            var svartsubendelse = ["jævel", "homse", "dritt", "fitte", "flyktning", "innvandrer", "svarting", "pakkis", "rebell", "mullah", "profet", "indianer"];
+            var svartsubstart = ["trygde", "innvandrer", "IS-", "muslim", "rasist"];
 
-		var hvitsted = ["Frogner", "Bærum", "Tjuvholm", "Nordstrand", "Vestre Aker", "Ullern", "Holmenkoll"];
-		var svartsted = ["Tøyen", "Grønland", "Grorud", "Homsås", "Alna", "Stovner"];
+            var hvitsubendelse = ["helgen", "frp-er", "republikaner", "feminist"];
+            var hvitsubstart = ["hvitsnippe", "Birkebeiner", "kakse", "EØS-", "yttringsfrihet", "au-pair"];
 
-		var hvitperson = ["Sylvi Listhaug", "Magnus Carlsen", "Erna Solberg", "Erna", "Sylvi"];
-		var svartperson = ["Magdi", "Chirag", "Karpe Diem"];
-		
-		var rand1 = parseInt(Math.random() * adjektiv.length);
-		var rand2 = parseInt(Math.random() * svartsub.length);
-		var rand3 = parseInt(Math.random() * hvitsub.length);
-		var rand4 = parseInt(Math.random() * svartsubendelse.length);
-		var rand5 = parseInt(Math.random() * svartsubstart.length);
-		var rand6 = parseInt(Math.random() * hvitsubendelse.length);
-		var rand7 = parseInt(Math.random() * hvitsubstart.length);
-		var rand8 = parseInt(Math.random() * hvitsted.length);
-		var rand9 = parseInt(Math.random() * svartsted.length);
-		var rand10 = parseInt(Math.random() * hvitperson.length);
-		var rand11 = parseInt(Math.random() * svartperson.length);
-		
-		function persongen(){
-			var name;
-			if (parseInt(Math.random() * 2) < 1){ //adjective?
-				name = adjektiv[rand1]+" ";
+            var hvitsted = ["Frogner", "Bærum", "Tjuvholm", "Nordstrand", "Vestre Aker-", "Ullern", "Holmenkoll", "Bygdøy"];
+            var svartsted = ["Tøyen", "Grønland", "Grorud", "Homsås", "Alna", "Stovner"];
+
+            var hvitperson = ["Sylvi Listhaug", "Magnus Carlsen", "Erna Solberg", "Erna", "Sylvi", "Stoltenberg", "Jens", "Hvite menn", "Siv Jensen"];
+            var svartperson = ["Magdi", "Chirag", "Karpe Diem", "Mullah Krekar", "Allah"];
+            
+            // Random numbers are made
+            var rand1 = parseInt(Math.random() * adjektiv.length);
+            var rand2 = parseInt(Math.random() * svartsub.length);
+            var rand3 = parseInt(Math.random() * hvitsub.length);
+            var rand4 = parseInt(Math.random() * svartsubendelse.length);
+            var rand5 = parseInt(Math.random() * svartsubstart.length);
+            var rand6 = parseInt(Math.random() * hvitsubendelse.length);
+            var rand7 = parseInt(Math.random() * hvitsubstart.length);
+            var rand8 = parseInt(Math.random() * hvitsted.length);
+            var rand9 = parseInt(Math.random() * svartsted.length);
+            var rand10 = parseInt(Math.random() * hvitperson.length);
+            var rand11 = parseInt(Math.random() * svartperson.length);
+            
+            
+            function regenerate(){
+            	rand1 = parseInt(Math.random() * adjektiv.length);
+                rand2 = parseInt(Math.random() * svartsub.length);
+                rand3 = parseInt(Math.random() * hvitsub.length);
+                rand4 = parseInt(Math.random() * svartsubendelse.length);
+                rand5 = parseInt(Math.random() * svartsubstart.length);
+                rand6 = parseInt(Math.random() * hvitsubendelse.length);
+                rand7 = parseInt(Math.random() * hvitsubstart.length);
+                rand8 = parseInt(Math.random() * hvitsted.length);
+                rand9 = parseInt(Math.random() * svartsted.length);
+                rand10 = parseInt(Math.random() * hvitperson.length);
+                rand11 = parseInt(Math.random() * svartperson.length);
+            	generator()
+            }
+				
+		function persongen(adj, sted){
+			var name = "";
+			if (adj){
+				if (parseInt(Math.random() * 2) < 1){ //adjective?
+					  name = adjektiv[rand1]+" ";
+				}
 			}
 			
 			//Start
-			var prob = parseInt(Math.random() * 4);
-			if (prob == 0){
+            var multi = 4;
+            if (sted){
+            	multi = 1;
+            }
+            
+			var prob = parseInt(Math.random() * multi);
+			if (prob == 3){
 				name = name+hvitsted[rand8];
-			}else if (prob == 1){
-				name = name+svartsted[rand9];
 			}else if (prob == 2){
+				name = name+svartsted[rand9];
+			}else if (prob == 1){
 				name = name+svartsubstart[rand5];
-			}else if (prob == 3){
+			}else if (prob == 0){
 				name = name+hvitsubstart[rand7];
 			}
-			prob = parseInt(Math.random() * 2);
-			else if (prob == 0){
+			prob = parseInt(Math.random() * 1);
+			if (prob == 0){
 				name = name+svartsubendelse[rand4];
 			}else if (prob == 1){
 				name = name+hvitsubendelse[rand6];
 			}
+            
+            if (sted){
+              if (parseInt(Math.random() * 4) == 1) {
+                    if (parseInt(Math.random() * 1) == 1){ //fra?
+                        name = name+" fra "+svartsted[rand8];
+                    }else{
+                        name = name+" fra "+hvitsted[rand9];
+                    }
+                }
+            }
 			return name;
-			
 		}
-		function generator(){		
-			// Random numbers are made 
-			var settning = parseInt(Math.random()*6);
+        
+		function generator(){
+			var settning = parseInt(Math.random()*12);
 			var name;
 			
 			if (settning == 0){
-				name = persongen();
+				name = persongen(false, true);
 			}
 			if (settning == 1){
-				name = hvitperson[rand10]+" og en "+persongen();
+				name = hvitperson[rand10]+" og en "+persongen(true, true);
 			}
 			if (settning == 2){
-				name = hvitsubstart[rand7]+svartsubendelse[rand4];
+				name = svartperson[rand11]+" og en "+persongen(true, true);
 			}
 			if (settning == 3){
-				name = hvitsubstart[rand7]+svartsubendelse[rand4];
+				name = "En "+persongen(false, false)+" og en "+hvitsub[rand3];
 			}
 			if (settning == 4){
-				name = hvitsubstart[rand7]+svartsubendelse[rand4];
+				name = "En "+persongen(false, false)+" og en "+svartsub[rand2]
 			}
 			if (settning == 5){
-				name = hvitsubstart[rand7]+svartsubendelse[rand4];
+				name = "Je suis "+persongen(false, false);
 			}
 			if (settning == 6){
-				name = hvitsubstart[rand7]+svartsubendelse[rand4];
+				name = hvitperson[rand10]+" i senga med "+svartperson[rand11];
+			}
+            if (settning == 7){
+				name = persongen(false, false)+"en og "+hvitsub[rand3]+"en";
+			}
+			if (settning == 8){
+				name = persongen(false, false)+"en og "+svartsub[rand2]+"en";
+			}
+            if (settning == 9){
+				name = hvitsub[rand3]+"en til "+svartperson[rand11];
+			}
+			if (settning == 10){
+				name = svartsub[rand2]+"en til "+svartperson[rand11];
+			}
+            if (settning == 11){
+				name = hvitsub[rand3]+"en til "+hvitperson[rand10];
+			}
+			if (settning == 12){
+				name = svartsub[rand2]+"en til "+hvitperson[rand10];
 			}
 			
 			
@@ -110,9 +162,9 @@
 	
 	<style type="text/css">
 		body{font-family: arial, serif;}
-		#wrapper{border-left:1px solid #cccccc;border-right:1px solid #cccccc;margin:0 auto;padding: 0 20px;width: 700px}
-		#generator{background:#e9f3f6;border:1px solid #cccccc;margin:30px 0;font-size:28px;font-weight:bold;padding:50px 0 20px;text-align:center;-moz-border-radius: 5px;-webkit-border-radius: 5px;}
-		#generator input{font-size:16px;font-weight:normal;margin-top: 30px}
+		
+		#generator{background:#e9f366;border:1px solid #cccccc;margin:30px 0;font-size:30px;font-weight:bold;padding:50px 0 20px;text-align:center;-moz-border-radius: 5px;-webkit-border-radius: 5px;}
+		#generator input{font-size:22px;font-weight:normal;margin-top: 30px}
 		#footer{font-size: 10px; color: #999; margin: 30px 0 0 0;}
 		#footer a{color:#999}
 	</style>
@@ -120,11 +172,9 @@
 </head>
 <body onload="generator()">
 	<div id="wrapper">
-			
-		<!-- The generator result and button. Change text on the button by changing button value. Be carefull changing ID's in this part -->
 		<div id="generator" >
 			<div id="placeholder"></div>
-			<input type="button" value="Shamener" onclick="generator()" />		
+			<input type="button" value="Shamener!" onclick="regenerate()" />		
 		</div>
 	</div>
 </body>
